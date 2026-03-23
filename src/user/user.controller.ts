@@ -6,7 +6,7 @@ export class UserController {
   constructor(private readonly userservice: UserService) {}
 
   @Get('test')
-  test(): string[] {
+  test(): [] {
     return this.userservice.test();
   }
 }
