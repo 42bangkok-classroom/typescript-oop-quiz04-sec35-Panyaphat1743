@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { UserService } from './user.service';
-import { IUser } from './user.interface'
+import { IUser } from './user.interface';
 
 @Controller()
 export class UserController {
@@ -11,8 +11,8 @@ export class UserController {
     return this.userservice.test();
   }
 
-   @Get('users')
-   getAll(): IUser[]{
-    return this.userservice.findAll()
-   }
+  @Get('users')
+  getAll(): IUser[] {
+    return this.userservice.findAll();
+  }
 }

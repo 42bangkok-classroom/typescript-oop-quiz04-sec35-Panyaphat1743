@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { IUser } from './user.interface'
-import * as usersdata from '../../data/users.json'
+import { IUser } from './user.interface';
+import * as usersdata from '../../data/users.json';
 
 @Injectable()
 export class UserService {
@@ -8,7 +8,7 @@ export class UserService {
     return [];
   }
 
-  findAll():IUser[]{
-    return usersdata
+  findAll(): IUser[] {
+    return usersdata;
   }
 }
