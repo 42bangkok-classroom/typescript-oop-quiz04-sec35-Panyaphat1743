@@ -20,7 +20,7 @@ export class UserController {
   findOne(@Param('id') id: string, @Query('fields') fields?: string) {
     if (!fields) {
       return this.userservice.findOne(id);
-    }else {
+    } else {
       const newfields = fields.split(',');
       return this.userservice.findOne(id, newfields);
     }
