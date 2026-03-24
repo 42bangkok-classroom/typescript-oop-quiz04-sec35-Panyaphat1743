@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable,NotFoundException } from '@nestjs/common';
 import { IUser } from './user.interface';
 import usersdata from '../../data/users.json';
 
@@ -10,5 +10,25 @@ export class UserService {
 
   findAll(): IUser[] {
     return usersdata;
+  }
+
+  findOne(id:string,field?:string[]): Partial<IUser>{
+    const user = usersdata.find(u => (u.id === id))    
+    const lastans = {}
+
+    if(!user){
+      throw new NotFoundException('User not found')
+    }
+
+    if(!field || field.length == 0){
+      return user
+    }
+
+    field.forEach(i => {
+      if(user[i] !== undefined){
+        lastans[i] = user[i]
+      }
+    })
+    return lastans;
   }
 }
