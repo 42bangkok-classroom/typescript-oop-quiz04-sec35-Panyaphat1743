@@ -17,12 +17,12 @@ export class UserController {
   }
 
   @Get('users/:id')
-  findOne(@Param('id') id:string,@Query('fields') fields?:string){
-    if(!fields) {
-      return this.userservice.findOne(id)
-    }else{
-      const newfields = fields.split(',')
-      return this.userservice.findOne(id,newfields)
+  findOne(@Param('id') id: string, @Query('fields') fields?: string) {
+    if (!fields) {
+      return this.userservice.findOne(id);
+    }else {
+      const newfields = fields.split(',');
+      return this.userservice.findOne(id, newfields);
     }
   }
 }
