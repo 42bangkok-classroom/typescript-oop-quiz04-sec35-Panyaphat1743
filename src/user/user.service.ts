@@ -20,7 +20,7 @@ export class UserService {
       throw new NotFoundException('User not found');
     }
 
-    if (!field || field.length == 0) {
+    if (!field) {
       return user;
     }
 
