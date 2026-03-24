@@ -25,8 +25,9 @@ export class UserService {
     }
 
     field.forEach((i) => {
-      if (user[i] !== undefined) {
-        lastans[i] = user[i];
+      const key = i as keyof IUser;
+      if (user[key] !== undefined) {
+        lastans[key] = user[key];
       }
     });
     return lastans;
